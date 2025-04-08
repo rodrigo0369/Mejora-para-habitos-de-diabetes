@@ -32,5 +32,3 @@ class DiabetesHabitsApp extends StatelessWidget {
     );
   }
 }
-import 'package:timezone/data/latest.dart' as tz;
-tz.initializeTimeZones();
