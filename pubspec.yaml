@@ -1,27 +1,26 @@
-name: diabetes_habits_app
-description: App de hábitos para personas con diabetes
-publish_to: "none"
-version: 1.0.0+1
+// Estructura del proyecto DiabetesHabitsApp
 
-environment:
-  sdk: ">=3.2.0 <4.0.0"
+// pubspec.yaml name: diabetes_habits_app description: App de hábitos para personas con diabetes publish_to: 'none' version: 1.0.0+1 environment: sdk: ">=3.0.0 <4.0.0"
 
-dependencies:
-  flutter:
-    sdk: flutter
-  flutter_local_notifications: ^16.1.0
-  shared_preferences: ^2.2.2
-  intl: ^0.19.0
-  flutter_localizations:
-    sdk: flutter
+dependencies: flutter: sdk: flutter flutter_local_notifications: ^17.0.0 hive: ^2.2.3 hive_flutter: ^1.1.0 path_provider: ^2.1.2 intl: ^0.19.0 flutter_localizations: sdk: flutter
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^3.0.1
+flutter: uses-material-design: true
 
-flutter:
-  uses-material-design: true
-  assets:
-    - assets/
-    
+assets: - assets/
+
+// lib/main.dart import 'package:flutter/material.dart'; import 'screens/home_screen.dart';
+
+void main() async { runApp(const DiabetesHabitsApp()); }
+
+class DiabetesHabitsApp extends StatelessWidget { const DiabetesHabitsApp({super.key});
+
+@override Widget build(BuildContext context) { return MaterialApp( title: 'DiabetesHabitsApp', debugShowCheckedModeBanner: false, theme: ThemeData( primarySwatch: Colors.blue, useMaterial3: true, ), home: const HomeScreen(), ); } }
+
+// lib/screens/home_screen.dart import 'package:flutter/material.dart';
+
+class HomeScreen extends StatelessWidget { const HomeScreen({super.key});
+
+@override Widget build(BuildContext context) { return Scaffold( appBar: AppBar(title: const Text('DiabetesHabitsApp')), body: const Center( child: Text('Pantalla principal de hábitos'), ), ); } }
+
+// codemagic.yaml workflows: diabeteshabits-workflow: name: DiabetesHabitsApp Build max_build_duration: 30 environment: flutter: stable xcode: latest scripts: - name: Instalar dependencias script: flutter pub get - name: Compilar APK script: flutter build apk --release artifacts: - build/app/outputs/flutter-apk/app-release.apk
+
