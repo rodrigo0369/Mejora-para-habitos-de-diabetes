@@ -1,6 +1,21 @@
 workflows:
-    sample-workflow:
-        name: Codemagic Sample Workflow
-        max_build_duration: 120
-        instance_type: mac_mini_m2
-        
+  diabeteshabits-workflow:
+    name: DiabetesHabitsApp Build
+    max_build_duration: 30
+    environment:
+      flutter: stable
+      xcode: latest
+    scripts:
+      - name: Instalar dependencias
+        script: flutter pub get
+
+      - name: Compilar APK
+        script: flutter build apk --release
+
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+
+    publishing:
+      email:
+        recipients:
+          - tu-email@ejemplo.com
