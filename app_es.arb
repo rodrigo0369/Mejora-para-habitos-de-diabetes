@@ -1,0 +1,15 @@
+{
+  "@@locale": "es",
+  "appTitle": "DiabetesHabitsApp",
+  "homeTitle": "Hábitos de hoy",
+  "completed": "{count} completados",
+  "glucoseReminderTitle": "Recordatorio de glucosa",
+  "glucoseReminderBody": "No olvides registrar tu nivel de glucosa hoy",
+  "save": "Guardar",
+  "settings": "Configuración",
+  "reminderTime": "Hora del recordatorio de glucosa",
+  "registerGlucose": "Registrar glucosa",
+  "history": "Historial",
+  "glucoseTooLow": "¡Glucosa muy baja!",
+  "glucoseTooHigh": "¡Glucosa muy alta!"
+}
